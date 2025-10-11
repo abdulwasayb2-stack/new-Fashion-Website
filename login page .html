@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Fashion | Login</title>
+    <style>
+        :root {
+            --blue1: #0072ff;
+            --blue2: #00c6ff;
+            --light: #ffffff;
+            --gray: #f3f3f3;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, var(--blue1), var(--blue2));
+            padding: 20px;
+        }
+
+        .login-container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 20px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .login-container h1 {
+            color: var(--light);
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 2.2rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .login-container input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            background: var(--light);
+            color: #333;
+            outline: none;
+        }
+
+        .login-container input::placeholder {
+            color: #666;
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 12px;
+            border-radius: 25px;
+            border: none;
+            background: #fff;
+            color: var(--blue1);
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .login-btn:hover {
+            background: var(--blue1);
+            color: #fff;
+        }
+
+        .social-buttons {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .social-buttons p {
+            color: #fff;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+
+        .social-btn {
+            width: 100%;
+            padding: 10px;
+            border-radius: 25px;
+            border: 1px solid #fff;
+            background: transparent;
+            color: #fff;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .social-btn img {
+            width: 40px;
+            height: 40px;
+        }
+
+        .social-btn:hover {
+            background: #fff;
+            color: var(--blue1);
+        }
+
+        .extra-links {
+            margin-top: 15px;
+            text-align: center;
+            color: #fff;
+        }
+
+        .extra-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .extra-links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h1>Welcome Back</h1>
+        <form id="loginForm">
+            <input type="email" id="email" placeholder="Email Address" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <button type="submit" class="login-btn">Login</button>
+        </form>
+
+        <div class="social-buttons">
+            <p>Or login with</p>
+            <button type="button" class="social-btn">
+                <img src="imgi_205_google-logo-png.png" alt="Google Logo"> Google
+            </button>
+            <button type="button" class="social-btn">
+                <img src="imgi_195_facebook-logo-circle-transparent.png" alt="Facebook Logo"> Facebook
+            </button>
+        </div>
+
+        <div class="extra-links">
+            <p>Don't have an account? <a href="Sign up page.HTML">Sign Up</a></p>
+            <p style="margin-top: 10px;"><a href="#">Forgot Password?</a></p>
+        </div>
+    </div>
+
+    <script>
+        // Form Validation
+        document.getElementById("loginForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+            const email = document.getElementById("email").value.trim();
+            const password = document.getElementById("password").value.trim();
+
+            // Check if fields are empty
+            if (email === "" || password === "") {
+                alert("Please fill all fields.");
+                return;
+            }
+
+            // Validate email format
+            const emailPattern = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+            if (!emailPattern.test(email)) {
+                alert("Please enter a valid email address.");
+                return;
+            }
+
+            // Here you would typically make an API call to verify credentials
+            // For demo purposes, we'll just show a success message
+            alert("Login Successful! 🎉");
+            this.reset();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Fashion | Sign Up</title>
+  <style>
+    :root {
+      --blue1: #0072ff;
+      --blue2: #00c6ff;
+      --light: #ffffff;
+      --gray: #f3f3f3;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      display: flex;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* LEFT: FORM SECTION */
+    .left {
+      flex: 1;
+      background: linear-gradient(135deg, var(--blue1), var(--blue2));
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px;
+      color: var(--light);
+    }
+
+    .signup-box {
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .signup-box h1 {
+      text-align: center;
+      margin-bottom: 25px;
+      font-size: 2.2rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    .signup-box input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      background: var(--light);
+      color: #333;
+      outline: none;
+    }
+
+    .signup-box input::placeholder {
+      color: #666;
+    }
+
+    .signup-btn {
+      width: 100%;
+      padding: 12px;
+      border-radius: 25px;
+      border: none;
+      background: #fff;
+      color: var(--blue1);
+      font-weight: bold;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s ease;
+      margin-top: 10px;
+    }
+
+    .signup-btn:hover {
+      background: var(--blue1);
+      color: #fff;
+    }
+
+    /* SOCIAL BUTTONS */
+    .social-buttons {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .social-buttons p {
+      color: #fff;
+      margin-bottom: 10px;
+      font-size: 0.95rem;
+    }
+
+    .social-btn {
+      width: 100%;
+      padding: 10px;
+      border-radius: 25px;
+      border: 1px solid #fff;
+      background: transparent;
+      color: #fff;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .social-btn img {
+      width: 40px;
+      height: 40px;
+    }
+
+    .social-btn:hover {
+      background: #fff;
+      color: var(--blue1);
+    }
+
+    .extra-links {
+      margin-top: 15px;
+      text-align: center;
+    }
+
+    .extra-links a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .extra-links a:hover {
+      text-decoration: underline;
+    }
+
+    /* RIGHT: SLIDESHOW SECTION */
+    .right {
+      flex: 1;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .slide {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .slide.active {
+      opacity: 1;
+    }
+
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .label {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0, 114, 255, 0.8);
+      padding: 12px 24px;
+      border-radius: 30px;
+      color: #fff;
+      font-size: 1.1rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    @media(max-width: 900px) {
+      body {
+        flex-direction: column;
+      }
+      .right {
+        height: 40vh;
+      }
+      .left {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- LEFT: SIGN UP FORM -->
+  <div class="left">
+    <div class="signup-box">
+      <h1>Create Account</h1>
+      <form id="signupForm">
+        <input type="text" id="name" placeholder="Full Name" required>
+        <input type="email" id="email" placeholder="Email Address" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <input type="password" id="confirm" placeholder="Confirm Password" required>
+        <button type="submit" class="signup-btn">Sign Up</button>
+      </form>
+
+      <div class="social-buttons">
+        <p>Or sign up with</p>
+        <button type="button" class="social-btn">
+          <img src="imgi_205_google-logo-png.png" alt="Google Logo"> Google
+        </button>
+        <button type="button" class="social-btn">
+          <img src="imgi_195_facebook-logo-circle-transparent.png" alt="Facebook Logo"> Facebook
+        </button>
+      </div>
+
+      <div class="extra-links">
+        <p>Already have an account? <a href="login page .html">Login</a></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT: IMAGE SLIDESHOW -->
+  <div class="right">
+    <div class="slide active"><img src="man-9182458_1280.jpg" alt="Fashion"><div class="label">Fashion</div></div>
+    <div class="slide"><img src="woman-6004282_1280.jpg" alt="Luxury"><div class="label">Luxury</div></div>
+    <div class="slide"><img src="woman-9554464_1280.jpg" alt="Style"><div class="label">Style</div></div>
+    <div class="slide"><img src="ao-dai-6146369_1280.jpg" alt="Trends"><div class="label">Trends</div></div>
+    <div class="slide"><img src="man-6629597_1280.jpg" alt="Elegance"><div class="label">Elegance</div></div>
+  </div>
+
+  <script>
+    // Form Validation
+    document.getElementById("signupForm").addEventListener("submit", function(e){
+      e.preventDefault();
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const pass = document.getElementById("password").value.trim();
+      const confirm = document.getElementById("confirm").value.trim();
+
+      // Check if any field is empty
+      if (name === "" || email === "" || pass === "" || confirm === "") {
+        alert("Please fill all fields.");
+        return;
+      }
+      const emailPattern = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+      if (!emailPattern.test(email)) {
+        alert("Invalid email format.");
+        return;
+      }
+      if (pass.length < 8) {
+        alert("Password must be at least 8 characters long.");
+        return;
+      }
+      if (pass !== confirm) {
+        alert("Passwords do not match.");
+        return;
+      }
+      alert("Sign Up Successful 🎉");
+      this.reset();
+    });
+
+    // Slideshow
+    let slides = document.querySelectorAll(".slide");
+    let index = 0;
+    setInterval(() => {
+      slides[index].classList.remove("active");
+      index = (index + 1) % slides.length;
+      slides[index].classList.add("active");
+    }, 4000);
+  </script>
+</body>
+</html>

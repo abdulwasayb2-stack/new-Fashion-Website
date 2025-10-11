@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dreamweaver — The Fashion</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background: #f8f9fb;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* ===== Navbar ===== */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #fff;
+      padding: 15px 35px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    /* Adjust body for fixed navbar */
+    main {
+      flex: 1;
+      margin-top: 100px;
+    }
+
+    /* ===== Logo ===== */
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      font-weight: 600;
+      font-size: 1.4em;
+      color: #333;
+      cursor: pointer;
+    }
+
+    .logo img {
+      width: 70px;
+      height: 70px;
+      object-fit: contain;
+      border-radius: 50%;
+      background: #f0f0f0;
+      padding: 6px;
+      box-shadow: 0 0 6px rgba(0,0,0,0.15);
+      transition: transform 0.3s ease;
+    }
+
+    .logo img:hover {
+      transform: scale(1.05);
+    }
+
+    .logo small {
+      font-weight: 400;
+      font-size: 0.8em;
+      color: gray;
+      display: block;
+    }
+
+    /* ===== Nav Links ===== */
+    .nav-links {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: color 0.3s, border-bottom 0.3s;
+      padding-bottom: 3px;
+    }
+
+    .nav-links a:hover {
+      color: #0072ff;
+      border-bottom: 2px solid #0072ff;
+    }
+
+    /* ===== Dropdown ===== */
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      background: #fff;
+      top: 35px;
+      list-style: none;
+      padding: 10px 0;
+      border-radius: 5px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .dropdown-menu li {
+      padding: 8px 20px;
+    }
+
+    .dropdown:hover .dropdown-menu {
+      display: block;
+    }
+
+    /* ===== Auth Buttons ===== */
+    .auth-buttons {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .auth-buttons a {
+      text-decoration: none;
+      padding: 10px 18px;
+      border-radius: 25px;
+      transition: all 0.3s ease;
+      font-weight: 600;
+      border: 1px solid transparent;
+    }
+
+    .login-btn {
+      color: #0072ff;
+      border: 1px solid #0072ff;
+    }
+
+    .login-btn:hover {
+      background: #0072ff;
+      color: #fff;
+      transform: scale(1.05);
+    }
+
+    .signup-btn {
+      background: linear-gradient(90deg, #0072ff, #00c6ff);
+      color: #fff;
+      border: none;
+    }
+
+    .signup-btn:hover {
+      transform: scale(1.05);
+      opacity: 0.9;
+    }
+
+    /* ===== Responsive Navbar ===== */
+    .menu-toggle {
+      display: none;
+      font-size: 26px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links,
+      .auth-buttons {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: #fff;
+        position: absolute;
+        top: 90px;
+        left: 0;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      }
+
+      .nav-links.active,
+      .auth-buttons.active {
+        display: flex;
+      }
+
+      .nav-links li,
+      .auth-buttons a {
+        text-align: center;
+        padding: 10px 0;
+      }
+    }
+
+    /* ===== Footer ===== */
+    .footer {
+      background: #fff;
+      box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+      padding: 50px 30px 20px;
+      color: #333;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 40px;
+    }
+
+    .footer-section {
+      flex: 1 1 250px;
+      min-width: 250px;
+    }
+
+    .footer-section h3, .footer-section h4 {
+      color: #0072ff;
+      margin-bottom: 15px;
+    }
+
+    .footer-section p {
+      color: gray;
+      font-size: 0.95em;
+      line-height: 1.6;
+    }
+
+    .footer-section ul {
+      list-style: none;
+    }
+
+    .footer-section ul li {
+      margin-bottom: 8px;
+    }
+
+    .footer-section ul li a {
+      color: #333;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-section ul li a:hover {
+      color: #0072ff;
+    }
+
+    .footer hr {
+      border: none;
+      border-top: 1px solid #eee;
+      margin: 30px 0 15px;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      font-size: 0.9em;
+      color: gray;
+    }
+
+    @media (max-width: 768px) {
+      .footer-container {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    /* ===== Image Modal ===== */
+    .image-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.95);
+      justify-content: center;
+      align-items: center;
+      z-index: 2000;
+      cursor: zoom-out;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .image-modal img {
+      max-width: 90%;
+      max-height: 90%;
+      object-fit: contain;
+      animation: zoomIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes zoomIn {
+      from { transform: scale(0.9); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+    /* ===== Home Page Sections ===== */
+.fashion-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+  padding: 80px 10%;
+  background: #fff;
+  flex-wrap: wrap;
+}
+
+.fashion-section:nth-child(even) {
+  background: #f8f9fb;
+}
+
+.fashion-text {
+  flex: 1 1 45%;
+}
+
+.fashion-text h3 {
+  color: #0072ff;
+  font-size: 1.8em;
+  margin-bottom: 15px;
+}
+
+.fashion-text p {
+  color: #555;
+  line-height: 1.6;
+  font-size: 1.05em;
+}
+
+.fashion-image {
+  flex: 1 1 45%;
+  text-align: center;
+}
+
+.fashion-image img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 20px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease;
+}
+
+.fashion-image img:hover {
+  transform: scale(1.03);
+}
+
+/* Reverse layout for alternating sections */
+.fashion-section.reverse {
+  flex-direction: row-reverse;
+}
+
+/* Brand logos */
+/* ===== Enhanced Brands Section ===== */
+.brands-section {
+  text-align: center;
+  padding: 100px 20px;
+  background: linear-gradient(90deg, #0072ff10, #00c6ff20);
+  border-top: 1px solid #e5e9f2;
+  border-bottom: 1px solid #e5e9f2;
+}
+
+.brands-section h3 {
+  font-size: 2em;
+  color: #0072ff;
+  margin-bottom: 10px;
+}
+
+.brands-section p {
+  color: #555;
+  font-size: 1.1em;
+  margin-bottom: 50px;
+}
+
+.brands-section .brand-logos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+}
+
+.brands-section .brand-logos a img {
+  width: 120px;
+  opacity: 0.8;
+  filter: grayscale(100%);
+  transition: all 0.3s ease;
+}
+
+.brands-section .brand-logos a img:hover {
+  opacity: 1;
+  filter: grayscale(0%);
+  transform: scale(1.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .brands-section {
+    padding: 70px 10px;
+  }
+  .brands-section .brand-logos {
+    gap: 30px;
+  }
+  .brands-section .brand-logos a img {
+    width: 90px;
+  }
+}
+/* ===== Brand Showcase Section ===== */
+.brand-showcase {
+  text-align: center;
+  padding: 100px 20px;
+  background: #fff;
+}
+.brand-showcase h2 {
+  color: #0072ff;
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+.brand-showcase p {
+  color: #555;
+  font-size: 1.1em;
+  margin-bottom: 50px;
+}
+.brand-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+}
+.brand-card {
+  background: #f8f9fb;
+  border-radius: 15px;
+  overflow: hidden;
+  width: 260px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.brand-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+.brand-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+.brand-card h4 {
+  color: #0072ff;
+  font-size: 1.3em;
+  margin: 15px 0 5px;
+}
+.brand-card p {
+  color: #555;
+  font-size: 0.95em;
+  padding: 0 10px 20px;
+}
+
+/* ===== Carousel Section ===== */
+.carousel-section {
+  text-align: center;
+  background: linear-gradient(90deg, #0072ff10, #00c6ff10);
+  padding: 100px 20px;
+}
+.carousel-section h2 {
+  color: #0072ff;
+  font-size: 2em;
+  margin-bottom: 40px;
+}
+.carousel {
+  position: relative;
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+.carousel .slides {
+  display: flex;
+  animation: slideShow 20s infinite;
+}
+.carousel .slides img {
+  width: 100%;
+  flex-shrink: 0;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 20px;
+}
+@keyframes slideShow {
+  0% {transform: translateX(0);}
+  25% {transform: translateX(-100%);}
+  50% {transform: translateX(-200%);}
+  75% {transform: translateX(-300%);}
+  100% {transform: translateX(0);}
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .brand-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+  .carousel .slides img {
+    height: 300px;
+  }
+}
+.brands-section {
+  text-align: center;
+  padding: 80px 20px;
+  background: #f8f9fc;
+}
+
+.brands-section h3 {
+  color: #0072ff;
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+.brands-section p {
+  color: #555;
+  font-size: 1.1em;
+  margin-bottom: 40px;
+}
+
+.brand-logos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 50px;
+}
+
+.brand-logos a img {
+  width: 120px;
+  height: auto;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  filter: grayscale(100%);
+}
+
+.brand-logos a img:hover {
+  transform: scale(1.1);
+  filter: grayscale(0%);
+}
+
+
+
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo" id="logoClick">
+      <img src="Geometric Elegance_ Dreamweaver Logo.png" alt="Dreamweaver Logo">
+      <span>Dreamweaver <small>The Fashion</small></span>
+    </div>
+
+    <div class="menu-toggle">&#9776;</div>
+
+    <ul class="nav-links">
+      <li><a href="#">Home</a></li>
+      <li class="dropdown">
+        <a href="#">Collections ▾</a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Men</a></li>
+          <li><a href="#">Women</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Styles</a></li>
+      <li><a href="#">Brands</a></li>
+      <li class="dropdown">
+        <a href="#">About ▾</a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Our Story</a></li>
+          <li><a href="#">Team</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+
+    <div class="auth-buttons">
+      <a href="login page .html" class="login-btn">Login</a>
+      <a href="Sign up page.HTML" class="signup-btn">Sign Up</a>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+ <!-- Main Content -->
+<main>
+  <!-- Hero Section -->
+  <section style="text-align:center; padding:100px 20px; background:linear-gradient(90deg,#0072ff22,#00c6ff22);">
+    <h2 style="font-size:2.2em; color:#0072ff;">Welcome to Dreamweaver</h2>
+    <p style="max-width:700px; margin:20px auto; color:#555; font-size:1.1em;">
+      Discover elegance and creativity woven into every design. Explore exclusive collections for men and women that
+      redefine modern fashion trends.
+    </p>
+  </section>
+
+  <!-- Men's Fashion Section -->
+  <section class="fashion-section">
+    <div class="fashion-text">
+      <h3>Men’s Fashion</h3>
+      <p>
+        Discover our exclusive range of men's wear — from sharp formal suits to casual streetwear.  
+        Every piece is designed to offer comfort, confidence, and timeless style.
+      </p>
+    </div>
+    <div class="fashion-image">
+       <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=80" alt="Men Fashion">
+    </div>
+  </section>
+
+  <!-- Women's Fashion Section -->
+  <section class="fashion-section reverse">
+    <div class="fashion-text">
+      <h3>Women’s Fashion</h3>
+      <p>
+        Explore elegant dresses, chic tops, and designer outfits that celebrate individuality.  
+        Our women's collection brings together modern design and classic sophistication.
+      </p>
+    </div>
+    <div class="fashion-image">
+      <img src="https://images.unsplash.com/photo-1521334884684-d80222895322?auto=format&fit=crop&w=800&q=80" alt="Women Fashion">
+    </div>
+  </section>
+
+  <!-- Men's Runway Look -->
+  <section class="fashion-section">
+    <div class="fashion-text">
+      <h3>Men’s Runway Look</h3>
+      <p>
+        From contemporary blazers to high-end streetwear, our runway looks highlight bold expression and modern cuts.  
+        Step into the world of effortless confidence and luxury design.
+      </p>
+    </div>
+    <div class="fashion-image">
+      <img src="https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb?auto=format&fit=crop&w=900&q=80" alt="Men Runway Fashion">
+    </div>
+  </section>
+
+  <!-- Women's Runway Show -->
+  <section class="fashion-section reverse">
+    <div class="fashion-text">
+      <h3>Women’s Runway Show</h3>
+      <p>
+        Experience the glamour of the runway — flowing gowns, radiant lighting, and modern silhouettes.  
+        A showcase of timeless confidence and feminine energy.
+      </p>
+    </div>
+    <div class="fashion-image">
+      <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=900&q=80" alt="Women Runway Show">
+    </div>
+  </section>
+
+  <!-- Brands Section -->
+  <!-- ===== Featured Brands Section ===== -->
+<section class="brands-section">
+  <div class="container">
+    <h3>Our Featured Brands</h3>
+    <p>Trusted by the world’s most iconic fashion labels.</p>
+
+    <div class="brand-logos">
+      <a href="https://www.hugoboss.com" target="_blank">
+        <img src="Hugoboos.jpg" alt="Hugo Boss">
+      </a>
+      <a href="https://www.gucci.com" target="_blank">
+        <img src="gucci.jpg" alt="Gucci">
+      </a>
+      <a href="https://www.zara.com" target="_blank">
+        <img src="ZARA.jpg" alt="Zara">
+      </a>
+      <a href="https://www.nike.com" target="_blank">
+        <img src="nike.jpg" alt="Nike">
+      </a>
+      <a href="https://www.levis.com" target="_blank">
+        <img src="levis.jpg" alt="Levi's">
+      </a>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Brand Showcase -->
+  <section class="brand-showcase">
+    <h2>Explore Our Partner Brands</h2>
+    <p>Discover luxury and creativity from globally admired labels featured on Dreamweaver.</p>
+    <div class="brand-cards">
+      <div class="brand-card">
+        <img src="gucci.jpg" alt="Gucci Logo" style="width:150px; height:auto; margin-top:20px;">
+        <p>Italian luxury redefining elegance and creativity.</p>
+      </div>
+      <div class="brand-card">
+        <img src="ZARA.jpg" alt="Zara Collection">
+        <h4>Zara</h4>
+        <p>Modern trends blended with everyday comfort and chic design.</p>
+      </div>
+      <div class="brand-card">
+        <img src="nike.jpg" alt="Nike Streetwear">
+        <h4>Nike</h4>
+        <p>Performance meets style in every step you take.</p>
+      </div>
+      <div class="brand-card">
+        <img src="Hugoboos.jpg" alt="H&M Fashion">
+        <h4>H&M</h4>
+        <p>Everyday fashion made affordable, sustainable, and timeless.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Carousel -->
+  <section class="carousel-section">
+    <h2>Dreamweaver Highlights</h2>
+    <div class="carousel">
+      <div class="slides">
+        <img src="photo-1503342217505-b0a15ec3261c.avif" alt="Fashion Show">
+        <img src="photo-1503341455253-b2e723bb3dbb.avif" alt="Runway Look">
+        <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=80" alt="Men Fashion">
+        <img src="https://images.unsplash.com/photo-1521334884684-d80222895322?auto=format&fit=crop&w=800&q=80" alt="Women Fashion">
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Our Story Section ===== -->
+  <section style="background:#eaf5ff; padding:100px 20px; text-align:center;">
+    <h2 style="color:#0072ff; font-size:2.2em;">Our Passion</h2>
+    <p style="max-width:800px; margin:20px auto; color:#444; font-size:1.1em; line-height:1.7;">
+      Dreamweaver began with a passion for merging creativity and fashion. 
+      From the first stitch to the final runway, our designs represent elegance, 
+      confidence, and individuality. Every piece you wear carries our promise — 
+      to make you feel as extraordinary as you truly are.
+    </p>
+    <img src="https://images.unsplash.com/photo-1526779259212-939e64788e3c?fm=jpg&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8ZnJlZSUyMGltYWdlc3xlbnwwfHwwfHx8MA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000" 
+         alt="Fashion Story" 
+         style="width:100%; max-width:700px; border-radius:20px; margin-top:30px; box-shadow:0 6px 15px rgba(0,0,0,0.15);">
+  </section>
+
+  <!-- ===== Style Inspiration Section ===== -->
+  <section style="background:linear-gradient(90deg,#0072ff15,#00c6ff20); padding:100px 20px; text-align:center;">
+    <h2 style="color:#0072ff; font-size:2.2em;">Our Brands Logos</h2>
+    <p style="max-width:800px; margin:20px auto; color:#333; font-size:1.1em; line-height:1.7;">
+      Inspired by the world’s most iconic fashion cities — Milan, Paris, New York — 
+       Dreamweaver blends global elegance with modern edge. Whether it’s men’s suits or 
+      women’s couture, our style speaks the language of innovation and confidence.
+    </p>
+    <img src="image.jpg" 
+         alt="Fashion Inspiration" 
+         style="width:100%; max-width:700px; border-radius:20px; margin-top:30px; box-shadow:0 6px 15px rgba(0,0,0,0.15);">
+  </section>
+</main>
+
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-section about">
+        <h3>Dreamweaver</h3>
+        <p>Where style meets creativity. Discover modern fashion and timeless trends at Dreamweaver — The Fashion.</p>
+      </div>
+
+      <div class="footer-section links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Collections</a></li>
+          <li><a href="#">Brands</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section contact">
+        <h4>Get in Touch</h4>
+        <p>📍 Karachi, Pakistan</p>
+        <p>📧 contact@dreamweaverfashion.com</p>
+        <p>☎️ +92 300 1234567</p>
+      </div>
+    </div>
+
+    <hr>
+    <div class="footer-bottom">
+      © 2025 <strong>Dreamweaver — The Fashion</strong>. All rights reserved.
+    </div>
+  </footer>
+
+  <!-- Fullscreen Image Modal -->
+  <div class="image-modal" id="imageModal">
+    <img src="Geometric Elegance_ Dreamweaver Logo.png" alt="Dreamweaver Full">
+  </div>
+
+  <script>
+    $(document).ready(function(){
+      $(".menu-toggle").click(function(){
+        $(".nav-links, .auth-buttons").toggleClass("active");
+      });
+
+      // Show fullscreen image
+      $("#logoClick").click(function(){
+        $("#imageModal").fadeIn(200);
+      });
+
+      // Close modal on click
+      $("#imageModal").click(function(){
+        $(this).fadeOut(200);
+      });
+
+      // Close modal on ESC
+      $(document).keydown(function(e){
+        if(e.key === "Escape"){
+          $("#imageModal").fadeOut(200);
+        }
+      });
+      
+    });
+  </script>
+</body>
+</html>
