@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Fashion | About Us</title>
+  <style>
+    :root {
+      --gold: #FFD700;
+      --black: #000000;
+      --dark: #1c1c1c;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: var(--gold);
+      background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)),
+                  url("about-bg.jpg") no-repeat center center/cover;
+      min-height: 100vh;
+    }
+
+    header {
+      text-align: center;
+      padding: 40px 20px 10px;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: var(--gold);
+    }
+
+    .about-container {
+      max-width: 1000px;
+      margin: 40px auto;
+      background: rgba(17, 17, 17, 0.95);
+      border: 1px solid var(--gold);
+      border-radius: 15px;
+      box-shadow: 0 0 25px rgba(255, 215, 0, 0.3);
+      padding: 40px;
+      text-align: center;
+    }
+
+    .about-container h2 {
+      font-size: 2rem;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--gold);
+    }
+
+    .about-container p {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: #ddd;
+      margin-bottom: 30px;
+    }
+
+    .mission-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+    }
+
+    .mission-card {
+      flex: 1 1 280px;
+      background: #111;
+      border: 1px solid var(--gold);
+      border-radius: 12px;
+      padding: 25px;
+      box-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .mission-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+    }
+
+    .mission-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .mission-card p {
+      color: #ccc;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      font-size: 0.9rem;
+      background: #000;
+      border-top: 1px solid var(--gold);
+      color: var(--gold);
+      margin-top: 275px;
+    }
+
+    @media(max-width: 768px) {
+      .about-container { padding: 30px 20px; }
+    }
+    img{
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        margin-bottom: 30px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+   
+  </header>
+
+  <div class="about-container">
+    <h2>Welcome to First Fashion</h2>
+    
+    <div>
+        <img src="About us Fashion.jpg" alt="About Us">
+    </div>
+
+    <div class="mission-section">
+      <div class="mission-card">
+        <h3>Our Vision</h3>
+        <p>To become the leading name in fashion that redefines elegance and inspires self-expression across the globe.</p>
+      </div>
+      <div class="mission-card">
+        <h3>Our Mission</h3>
+        <p>We aim to deliver high-quality, stylish clothing that resonates with individuality and sophistication.</p>
+      </div>
+      <div class="mission-card">
+        <h3>Our Values</h3>
+        <p>We value creativity, authenticity, and sustainability — ensuring our designs leave a lasting impression, not a footprint.</p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 First Fashion. All Rights Reserved.
+  </footer>
+</body>
+</html>
