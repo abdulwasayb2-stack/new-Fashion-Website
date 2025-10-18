@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Fashion | Our Team</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+    :root {
+      --blue1: #0072ff;
+      --blue2: #00c6ff;
+      --light: #ffffff;
+      --gray: #f5f5f5;
+      --dark: #222;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, var(--blue1), var(--blue2));
+      color: var(--dark);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header {
+      text-align: center;
+      color: var(--light);
+      margin-top: 50px;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .team-container {
+      background: var(--light);
+      border-radius: 15px;
+      box-shadow: 0 4px 25px rgba(0, 114, 255, 0.3);
+      width: 90%;
+      max-width: 1000px;
+      margin: 50px 0;
+      padding: 40px;
+    }
+    
+
+    .team-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+
+    .team-table th, .team-table td {
+      padding: 15px 10px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .team-table th {
+      background: linear-gradient(to right, var(--blue1), var(--blue2));
+      color: white;
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .team-table tr:hover {
+      background-color: var(--gray);
+    }
+
+    .team-table td {
+      font-size: 1rem;
+      color: #333;
+    }
+
+    footer {
+      text-align: center;
+      background: var(--light);
+      color: var(--blue1);
+      border-top: 2px solid var(--blue1);
+      padding: 15px;
+      width: 100%;
+      font-size: 0.9rem;
+      margin-top: auto;
+    }
+
+    @media(max-width: 768px) {
+      .team-table th, .team-table td {
+        font-size: 0.9rem;
+      }
+    }
+    
+   
+        
+    
+    
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Meet Our Team</h1>
+    <p>Creative Minds Behind First Fashion</p>
+  </header>
+
+  <div class="team-container">
+    <table class="team-table">
+      <thead>
+        <tr>
+          <th>Team ID</th>
+          <th>Name</th>
+          <th>Role</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Student1663016</td>
+          <td>Syed Abdul Wasay</td>
+          <td>Lead Designer</td>
+        </tr>
+        <tr>
+          <td>Student1659915</td>
+          <td>Ubaid ur Rehman</td>
+          <td>Backend Developer</td>
+        </tr>
+        <tr>
+          <td>Student1659912</td>
+          <td>Tashif Hussain</td>
+          <td>CSS Developer</td>
+        </tr>
+        <tr>
+          <td>Student1659900</td>
+          <td>Sajjad Hussain</td>
+          <td>N/A</td>
+        </tr>
+       
+      </tbody>
+    </table>
+  </div>
+
+  <footer>
+    &copy; 2025 The Fashion. All Rights Reserved.
+  </footer>
+</body>
+</html>

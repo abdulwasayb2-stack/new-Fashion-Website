@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+     /* Fullscreen image modal */
+     .image-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 2000;
+      background: rgba(0, 0, 0, 0.95);
+      justify-content: center;
+      align-items: center;
+      cursor: zoom-out;
+    }
+
+    .image-modal img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      animation: zoomIn 0.3s ease;
+    }
+    @keyframes zoomIn {
+      from {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+</style>
+<body>
+    <!-- Fullscreen Image Modal -->
+  <div class="image-modal" id="imageModal">
+    <img src="Geometric Elegance_ Dreamweaver Logo.png" alt="Dreamweaver Full">
+  </div>
+  <div class="page-wrap">
+    <header>
+      <h1>Women's Collection</h1>
+      <p style="margin-top:8px;color:rgba(255,255,255,0.9)">Stylish picks — Dresses, Shoes, Accessories & more</p>
+    </header>
+
+    <nav class="topbar">
+      <div class="brand">First Fashion</div>
+      <div>
+        <button class="cart-btn" type="button" data-bs-toggle="modal" data-bs-target="#cartModal">
+          <i class="fas fa-shopping-cart"></i> Cart <span id="cartCount" class="badge bg-danger">0</span>
+        </button>
+      </div>
+    </nav>
+</body>
+</html>

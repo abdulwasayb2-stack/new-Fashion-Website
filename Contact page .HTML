@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Fashion | Contact Us</title>
+  <style>
+    :root {
+      --blue1: #0072ff;
+      --blue2: #00c6ff;
+      --light: #ffffff;
+      --gray: #f5f5f5;
+      --dark: #222;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, var(--blue1), var(--blue2));
+      padding: 40px;
+      color: var(--dark);
+    }
+
+    .contact-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      background: var(--light);
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0, 114, 255, 0.3);
+      max-width: 1000px;
+      width: 100%;
+    }
+
+    /* Left: Info */
+    .info-section {
+      flex: 1;
+      min-width: 280px;
+      margin-right: 30px;
+    }
+
+    .info-item {
+      margin-bottom: 25px;
+    }
+
+    .info-item h3 {
+      font-size: 1.3rem;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      color: var(--blue1);
+    }
+
+    .info-item p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #444;
+    }
+
+    /* Right: Form */
+    .contact-box {
+      flex: 1;
+      min-width: 280px;
+    }
+
+    .contact-box h2 {
+      margin-bottom: 20px;
+      font-size: 1.8rem;
+      text-transform: uppercase;
+      color: var(--blue1);
+    }
+
+    .contact-box input,
+    .contact-box textarea {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: 1px solid rgba(0, 114, 255, 0.4);
+      background: var(--gray);
+      color: #333;
+      font-size: 1rem;
+      outline: none;
+      transition: 0.3s ease;
+    }
+
+    .contact-box input:focus,
+    .contact-box textarea:focus {
+      border-color: var(--blue1);
+      box-shadow: 0 0 8px rgba(0, 114, 255, 0.3);
+      background: #fff;
+    }
+
+    .contact-box textarea {
+      resize: vertical;
+      height: 100px;
+    }
+
+    .submit {
+      width: 100%;
+      padding: 12px;
+      border-radius: 25px;
+      border: none;
+      background: linear-gradient(to right, var(--blue1), var(--blue2));
+      color: #fff;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .submit:hover {
+      opacity: 0.9;
+      transform: translateY(-1px);
+    }
+
+    @media(max-width: 768px) {
+      .contact-container {
+        flex-direction: column;
+      }
+      .info-section {
+        margin-right: 0;
+        margin-bottom: 20px;
+      }
+    }
+     .info-item i {
+        font-size: 22px;
+        color: orange;
+        margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="contact-container">
+    <!-- Left Info -->
+    <div class="info-section">
+      <div class="info-item">
+        <i class="fas fa-phone"></i>
+        <h3>Call Us</h3>
+        <p>+92 318 6410161<br>+92 349 2609580</p>
+      </div>
+      <div class="info-item">
+        <i class="fas fa-map-marker-alt"></i>
+        <h3>Location</h3>
+        <p>121 Rock Street, 21 Avenue<br>New York, NY 92103</p>
+      </div>
+      <div class="info-item">
+         <i class="fas fa-clock"></i>
+        <h3>Business Hours</h3>
+        <p>Mon – Fri: 9 am – 6 pm<br>Sat – Sun: Closed</p>
+      </div>
+    </div>
+
+    <!-- Right Form -->
+    <div class="contact-box">
+      <h2>Contact Us</h2>
+      <form id="contactForm">
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea placeholder="Your Message (Max 500 characters)" maxlength="500"></textarea>
+        <button type="submit" class="submit">Send</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("contactForm").addEventListener("submit", function(e){
+      e.preventDefault();
+      alert("Message sent successfully!");
+      this.reset();
+    });
+  </script>
+</body>
+</html>

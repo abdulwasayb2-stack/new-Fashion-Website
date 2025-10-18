@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dreamweaver — The Fashion</title>
+  <title>First Fashion</title>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
   <style>
@@ -116,7 +116,8 @@
       padding: 8px 20px;
     }
 
-    .dropdown:hover .dropdown-menu {
+    .dropdown:hover .dropdown-menu,
+    .dropdown.open .dropdown-menu {
       display: block;
     }
 
@@ -541,7 +542,138 @@
   filter: grayscale(0%);
 }
 
+/* ===== Subscribe Section ===== */
+    .subscribe {
+      background: linear-gradient(90deg, #0072ff, #00c6ff);
+      color: white;
+      text-align: center;
+      padding: 80px 20px;
+    }
+    .subscribe h2 {font-size: 2em; margin-bottom: 10px;}
+    .subscribe p {font-size: 1.1em; margin-bottom: 25px;}
+    .subscribe input {
+      padding: 12px 20px;
+      width: 250px;
+      border: none;
+      border-radius: 30px 0 0 30px;
+      outline: none;
+    }
+    .subscribe button {
+      padding: 12px 25px;
+      border: none;
+      border-radius: 0 30px 30px 0;
+      background: #fff;
+      color: #0072ff;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+    .subscribe button:hover {
+      background: #0072ff;
+      color: white;
+    }
+    /* ===== Hero Section ===== */
+    .hero {
+      margin-top: 90px;
+      height: 80vh;
+      background: linear-gradient(rgba(0,114,255,0.5), rgba(0,198,255,0.4)),
+        url("https://images.unsplash.com/photo-1521335629791-ce4aec67ddaf?auto=format&fit=crop&w=1600&q=80");
+      background-size: cover;
+      background-position: center;
+      text-align: center;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 20px;
+    }
 
+    .hero h1 {
+      font-size: 2.8em;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      font-size: 1.2em;
+      margin-bottom: 30px;
+    }
+
+    .hero button {
+      background: #fff;
+      color: #0b1827;
+      padding: 12px 26px;
+      font-size: 1em;
+      border-radius: 30px;
+      border: none;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .hero button:hover {
+      background: #0072ff;
+      color: #fff;
+      transform: scale(1.05);
+    }
+    /* ===== Shop Now Dropdown ===== */
+.shop-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.shop-btn {
+  background: #fff;
+  color: #0b1827;
+  padding: 12px 26px;
+  font-size: 1em;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.shop-btn:hover {
+  background: #0072ff;
+  color: #fff;
+  transform: scale(1.05);
+}
+
+/* Dropdown menu styling */
+.shop-menu {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  background: #fff;
+  list-style: none ;
+  margin-top: 10px;
+  padding: 10px 0;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  min-width: 160px;
+  text-align: left;
+  z-index: 2000;
+}
+
+.shop-menu li {
+  padding: 10px 20px;
+}
+
+.shop-menu li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  display: block;
+  transition: 0.3s;
+}
+
+.shop-menu li a:hover {
+  color: #0072ff;
+}
+
+/* Show on hover or toggle via JS */
+.shop-dropdown.active .shop-menu {
+  display: block;
+}
 
   </style>
 </head>
@@ -550,8 +682,8 @@
   <!-- Navbar -->
   <nav class="navbar">
     <div class="logo" id="logoClick">
-      <img src="Geometric Elegance_ Dreamweaver Logo.png" alt="Dreamweaver Logo">
-      <span>Dreamweaver <small>The Fashion</small></span>
+  <img src="Geometric Elegance_ Dreamweaver Logo.png" alt="First Fashion Logo">
+  <span>First Fashion</span>
     </div>
 
     <div class="menu-toggle">&#9776;</div>
@@ -561,20 +693,20 @@
       <li class="dropdown">
         <a href="#">Collections ▾</a>
         <ul class="dropdown-menu">
-          <li><a href="#">Men</a></li>
-          <li><a href="#">Women</a></li>
+          <li><a href="Men_Local.html">Men</a></li>
+          <li><a href="Woman_local.html">Women</a></li>
         </ul>
       </li>
-      <li><a href="#">Styles</a></li>
-      <li><a href="#">Brands</a></li>
+  <li><a href="styles.html">Styles</a></li>
+  <li><a href="brands.html">Brands</a></li>
       <li class="dropdown">
         <a href="#">About ▾</a>
         <ul class="dropdown-menu">
-          <li><a href="About us.HTML">Our Story</a></li>
-          <li><a href="#">Team</a></li>
+          <li><a href="about us.html">Our Story</a></li>
+          <li><a href="Team.html">Team</a></li>
         </ul>
       </li>
-      <li><a href="#">Contact</a></li>
+      <li><a href="Contact page .HTML">Contact</a></li>
     </ul>
 
     <div class="auth-buttons">
@@ -582,18 +714,32 @@
       <a href="Sign up page.HTML" class="signup-btn">Sign Up</a>
     </div>
   </nav>
-
+ 
   <!-- Main Content -->
  <!-- Main Content -->
 <main>
   <!-- Hero Section -->
   <section style="text-align:center; padding:100px 20px; background:linear-gradient(90deg,#0072ff22,#00c6ff22);">
-    <h2 style="font-size:2.2em; color:#0072ff;">Welcome to Dreamweaver</h2>
+  <h2 style="font-size:2.2em; color:#0072ff;">Welcome to First Fashion</h2>
     <p style="max-width:700px; margin:20px auto; color:#555; font-size:1.1em;">
       Discover elegance and creativity woven into every design. Explore exclusive collections for men and women that
       redefine modern fashion trends.
     </p>
   </section>
+  <!-- Hero Section with Dropdown -->
+<section class="hero">
+  <h1>Redefining Fashion, Redefining You</h1>
+  <p>Experience elegance, confidence, and creativity in every collection.</p>
+
+  <div class="shop-dropdown">
+    <button class="shop-btn">Shop Now ▾</button>
+    <ul class="shop-menu">
+      <li><a href="Men.html">Men</a></li>
+      <li><a href="Woman.html">Women</a></li>
+    </ul>
+  </div>
+</section>
+
 
   <!-- Men's Fashion Section -->
   <section class="fashion-section">
@@ -619,7 +765,7 @@
       </p>
     </div>
     <div class="fashion-image">
-      <img src="https://images.unsplash.com/photo-1521334884684-d80222895322?auto=format&fit=crop&w=800&q=80" alt="Women Fashion">
+      <img src="woman-1509959_1280.jpg" alt="Women Fashion">
     </div>
   </section>
 
@@ -651,38 +797,13 @@
     </div>
   </section>
 
-  <!-- Brands Section -->
-  <!-- ===== Featured Brands Section ===== -->
-<section class="brands-section">
-  <div class="container">
-    <h3>Our Featured Brands</h3>
-    <p>Trusted by the world’s most iconic fashion labels.</p>
 
-    <div class="brand-logos">
-      <a href="https://www.hugoboss.com" target="_blank">
-        <img src="Hugoboos.jpg" alt="Hugo Boss">
-      </a>
-      <a href="https://www.gucci.com" target="_blank">
-        <img src="gucci.jpg" alt="Gucci">
-      </a>
-      <a href="https://www.zara.com" target="_blank">
-        <img src="ZARA.jpg" alt="Zara">
-      </a>
-      <a href="https://www.nike.com" target="_blank">
-        <img src="nike.jpg" alt="Nike">
-      </a>
-      <a href="https://www.levis.com" target="_blank">
-        <img src="levis.jpg" alt="Levi's">
-      </a>
-    </div>
-  </div>
-</section>
 
 
   <!-- Brand Showcase -->
   <section class="brand-showcase">
     <h2>Explore Our Partner Brands</h2>
-    <p>Discover luxury and creativity from globally admired labels featured on Dreamweaver.</p>
+    <p>Discover luxury and creativity from globally admired labels featured on First Fashion.</p>
     <div class="brand-cards">
       <div class="brand-card">
         <img src="gucci.jpg" alt="Gucci Logo" style="width:150px; height:auto; margin-top:20px;">
@@ -699,22 +820,31 @@
         <p>Performance meets style in every step you take.</p>
       </div>
       <div class="brand-card">
-        <img src="Hugoboos.jpg" alt="H&M Fashion">
+        <img src="h&m.png" alt="H&M Fashion">
         <h4>H&M</h4>
         <p>Everyday fashion made affordable, sustainable, and timeless.</p>
       </div>
     </div>
   </section>
+ <!-- Subscribe -->
+  <section class="subscribe">
+    <h2>Stay in Style</h2>
+    <p>Join our fashion community and get the latest updates, offers, and style tips!</p>
+    <div>
+      <input type="email" placeholder="Enter your email" required />
+      <button>Subscribe</button>
+    </div>
+  </section>
 
   <!-- Carousel -->
   <section class="carousel-section">
-    <h2>Dreamweaver Highlights</h2>
+    <h2>First Fashion Highlights</h2>
     <div class="carousel">
       <div class="slides">
         <img src="photo-1503342217505-b0a15ec3261c.avif" alt="Fashion Show">
         <img src="photo-1503341455253-b2e723bb3dbb.avif" alt="Runway Look">
         <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=80" alt="Men Fashion">
-        <img src="https://images.unsplash.com/photo-1521334884684-d80222895322?auto=format&fit=crop&w=800&q=80" alt="Women Fashion">
+        <img src="woman-5667299_1280.jpg" alt="Women Fashion">
       </div>
     </div>
   </section>
@@ -723,7 +853,7 @@
   <section style="background:#eaf5ff; padding:100px 20px; text-align:center;">
     <h2 style="color:#0072ff; font-size:2.2em;">Our Passion</h2>
     <p style="max-width:800px; margin:20px auto; color:#444; font-size:1.1em; line-height:1.7;">
-      Dreamweaver began with a passion for merging creativity and fashion. 
+      First Fashion began with a passion for merging creativity and fashion. 
       From the first stitch to the final runway, our designs represent elegance, 
       confidence, and individuality. Every piece you wear carries our promise — 
       to make you feel as extraordinary as you truly are.
@@ -738,7 +868,7 @@
     <h2 style="color:#0072ff; font-size:2.2em;">Our Brands Logos</h2>
     <p style="max-width:800px; margin:20px auto; color:#333; font-size:1.1em; line-height:1.7;">
       Inspired by the world’s most iconic fashion cities — Milan, Paris, New York — 
-       Dreamweaver blends global elegance with modern edge. Whether it’s men’s suits or 
+  First Fashion blends global elegance with modern edge. Whether it’s men’s suits or 
       women’s couture, our style speaks the language of innovation and confidence.
     </p>
     <img src="image.jpg" 
@@ -748,12 +878,13 @@
 </main>
 
 
+
   <!-- Footer -->
   <footer class="footer">
     <div class="footer-container">
       <div class="footer-section about">
-        <h3>Dreamweaver</h3>
-        <p>Where style meets creativity. Discover modern fashion and timeless trends at Dreamweaver — The Fashion.</p>
+  <h3>First Fashion</h3>
+  <p>Where style meets creativity. Discover modern fashion and timeless trends at First Fashion.</p>
       </div>
 
       <div class="footer-section links">
@@ -767,23 +898,16 @@
         </ul>
       </div>
 
-      <div class="footer-section contact">
-        <h4>Get in Touch</h4>
-        <p>📍 Karachi, Pakistan</p>
-        <p>📧 contact@dreamweaverfashion.com</p>
-        <p>☎️ +92 300 1234567</p>
-      </div>
-    </div>
-
+    
     <hr>
     <div class="footer-bottom">
-      © 2025 <strong>Dreamweaver — The Fashion</strong>. All rights reserved.
+  © 2025 <strong>First Fashion</strong>. All rights reserved.
     </div>
   </footer>
 
   <!-- Fullscreen Image Modal -->
   <div class="image-modal" id="imageModal">
-    <img src="Geometric Elegance_ Dreamweaver Logo.png" alt="Dreamweaver Full">
+  <img src="Geometric Elegance_ Dreamweaver Logo.png" alt="First Fashion Full">
   </div>
 
   <script>
@@ -791,6 +915,26 @@
       $(".menu-toggle").click(function(){
         $(".nav-links, .auth-buttons").toggleClass("active");
       });
+
+        // Dropdown click for mobile and desktop
+        $(".nav-links .dropdown > a").click(function(e){
+          e.preventDefault();
+          var $parent = $(this).parent('.dropdown');
+          $parent.toggleClass('open');
+          $parent.siblings('.dropdown').removeClass('open');
+        });
+
+        // Close dropdown when clicking outside
+        $(document).click(function(e){
+          if (!$(e.target).closest('.dropdown').length) {
+            $('.dropdown').removeClass('open');
+          }
+        });
+
+        // Close dropdown when selecting a menu item
+        $(".dropdown-menu a").click(function(){
+          $(this).closest('.dropdown').removeClass('open');
+        });
 
       // Show fullscreen image
       $("#logoClick").click(function(){
@@ -808,7 +952,31 @@
           $("#imageModal").fadeOut(200);
         }
       });
-      
+      // Smooth scroll for Styles and Brands
+      $("a[href='#cards-section']").click(function(e){
+        e.preventDefault();
+        const target = $("#cards-section");
+        if(target.length){
+          $('html, body').animate({
+            scrollTop: target.offset().top - 80 // adjust for navbar height
+          }, 700);
+        }
+      });
+       $(document).ready(function(){
+      $(".menu-toggle").click(function(){
+        $(".nav-links, .auth-buttons").toggleClass("active");
+      });
+
+      $(".subscribe button").click(function(){
+        let email = $(".subscribe input").val();
+        if(email){
+          alert("Thanks for subscribing, " + email + "!");
+          $(".subscribe input").val("");
+        } else {
+          alert("Please enter a valid email!");
+        }
+      });
+    });
     });
   </script>
 </body>

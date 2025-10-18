@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Purchase | First Fashion</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <style>
+    body {
+      background-color: #f8f9fa;
+      font-family: 'Poppins', sans-serif;
+    }
+    .purchase-container {
+      max-width: 700px;
+      margin: 60px auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #222;
+    }
+    .btn-purchase {
+      width: 100%;
+      padding: 12px;
+      background-color: #111;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+    .btn-purchase:hover {
+      background-color: #444;
+    }
+    .alert {
+      display: none;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background: #f9f9f9;
+    }
+
+    
+    
+
+     
+
+   
+    @keyframes zoomIn {
+      from {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+ 
+
+
+  </style>
+</head>
+<body>
+     
+  
+
+  
+
+    
+
+  
+  <div class="container">
+    <div class="purchase-container">
+      <h2>Complete Your Purchase</h2>
+
+      <div id="alertBox" class="alert" role="alert"></div>
+
+      <form id="purchaseForm">
+        <div class="mb-3">
+          <label for="name" class="form-label">Full Name</label>
+          <input type="text" class="form-control" id="name" placeholder="Enter your full name">
+        </div>
+
+        <div class="mb-3">
+          <label for="email" class="form-label">Email Address</label>
+          <input type="email" class="form-control" id="email" placeholder="Enter your email">
+        </div>
+         <div class="mb-3">
+          <label for="number" class="form-label">Number</label>
+          <input type="text" class="form-control" id="name" placeholder="Enter your number">
+        </div>
+
+        <div class="mb-3">
+          <label for="address" class="form-label">Shipping Address</label>
+          <textarea class="form-control" id="address" rows="3" placeholder="Enter your address"></textarea>
+        </div>
+
+        <div class="mb-3">
+          <label for="payment" class="form-label">Payment Method</label>
+          <select class="form-select" id="payment">
+            <option selected disabled>Choose a payment method</option>
+            <option value="credit">Credit / Debit Card</option>
+            <option value="paypal">PayPal</option>
+            <option value="cod">Cash on Delivery</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn-purchase">Confirm Purchase</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ✅ Modal for Success Message -->
+  <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content text-center">
+        <div class="modal-header">
+          <h5 class="modal-title w-100" id="successModalLabel">Purchase Successful 🎉</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Thank you for shopping with <strong>First Fashion</strong>!<br>
+          Visit our website again for more amazing products.</p>
+        </div>
+        <div class="modal-footer">
+          <a href="index.html" class="btn btn-dark">Visit Again</a>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+ 
+
+  <script>
+      $(document).ready(function(){
+      $(".menu-toggle").click(function(){
+        $(".nav-links, .auth-buttons").toggleClass("active");
+      });
+
+      // Show full image on click
+      $("#logoClick").click(function(){
+        $("#imageModal").fadeIn(200);
+      });
+
+      // Close modal on click or ESC
+      $("#imageModal").click(function(){
+        $(this).fadeOut(200);
+      });
+
+      $(document).keydown(function(e){
+        if(e.key === "Escape"){
+          $("#imageModal").fadeOut(200);
+        }
+      });
+    });
+  const form = document.getElementById("purchaseForm");
+  const alertBox = document.getElementById("alertBox");
+  const successModal = new bootstrap.Modal(document.getElementById("successModal"));
+
+  form.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const number = document.getElementById("number")?.value.trim(); // new number field
+    const address = document.getElementById("address").value.trim();
+    const payment = document.getElementById("payment").value;
+
+    // ✅ Check if all fields are filled
+    if (!name || !email || !number || !address || payment === "Choose a payment method") {
+      alertBox.style.display = "block";
+      alertBox.className = "alert alert-danger";
+      alertBox.innerText = "⚠️ Please fill in all the fields.";
+      return;
+    }
+
+    // ✅ Email validation
+    if (!email.includes("@")) {
+      alertBox.style.display = "block";
+      alertBox.className = "alert alert-warning";
+      alertBox.innerText = "⚠️ Please enter a valid email address.";
+      return;
+    }
+
+    // ✅ Number validation (must be exactly 11 digits)
+    const numberPattern = /^\d{11}$/;
+    if (!numberPattern.test(number)) {
+      alertBox.style.display = "block";
+      alertBox.className = "alert alert-warning";
+      alertBox.innerText = "⚠️ Number must be exactly 11 digits.";
+      return;
+    }
+
+    // ✅ If all good → show success modal
+    alertBox.style.display = "none";
+    form.reset();
+    successModal.show();
+  });
+</script>
+
+</body>
+</html>
