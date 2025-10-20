@@ -83,17 +83,22 @@
 
     .dropdown {
       position: relative;
+      z-index: 1100;
     }
 
     .dropdown-menu {
       display: none;
       position: absolute;
       background: #fff;
-      top: 35px;
+      top: 100%;
+      left: 0;
+      margin-top: 6px;
       list-style: none;
-      padding: 10px 0;
-      border-radius: 5px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      padding: 8px 0;
+      border-radius: 6px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+      min-width: 160px;
+      z-index: 1200;
     }
 
     .dropdown-menu li {
@@ -261,6 +266,35 @@
         min-width: 100%;
       }
     }
+    /* Brand card hover effects */
+    .brand-grid a {
+      display: block;
+      transition: transform 0.28s ease, box-shadow 0.28s ease;
+      border-radius: 10px;
+    }
+
+    .brand-grid .brand-card {
+      transition: transform 0.28s ease, box-shadow 0.28s ease;
+      will-change: transform;
+    }
+
+    .brand-grid img {
+      transition: transform 0.4s ease;
+      will-change: transform;
+    }
+
+    .brand-grid a:hover .brand-card {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+    }
+
+    .brand-grid a:hover img {
+      transform: scale(1.06);
+    }
+
+    .brand-grid a:hover h4 {
+      color: #0072ff;
+    }
   </style>
 </head>
 <body>
@@ -292,7 +326,7 @@
           <li><a href="Team.html">Team</a></li>
         </ul>
       </li>
-      <li><a href="#">Contact</a></li>
+      <li><a href="Contact page .HTML">Contact</a></li>
     </ul>
 
     <div class="auth-buttons">
@@ -304,58 +338,89 @@
   <!-- Brands Section -->
   <section id="top-brands" style="padding: 60px 20px; background: #f9f9f9;">
     <div style="max-width: 1000px; margin: auto;">
-      <h2 style="text-align: center; margin-bottom: 40px; color: #333;">Top 7 Global Fashion Brands</h2>
+      <h2 style="text-align: center; margin-bottom: 40px; color: #333;">Top 9 Global Fashion Brands</h2>
 
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 24px;">
+  <div class="brand-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 24px;">
         
-        <div style="background: #fff; border-radius: 10px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
-          <img src="Louis Vuitton.jpg" alt="Louis Vuitton Loo" style="width:100%; height:150px; object-fit:contain; margin-bottom:15px;">
+        <a href="https://www.louisvuitton.com/" target="_blank" rel="noopener noreferrer" style="text-decoration:none; color:inherit;">
+  <div class="brand-card" style="background: #fff; border-radius: 10px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+          <img src="Louis Vuitton.jpg" alt="Louis Vuitton" style="width:100%; height:150px; object-fit:contain; margin-bottom:15px;">
           <h4>Louis Vuitton</h4>
           <p><strong>Founder / Owner:</strong> Louis Vuitton (now part of LVMH, led by Bernard Arnault)</p>
           <p><strong>Brand Value:</strong> ~$41.6 billion (2024)</p>
         </div>
+        </a>
 
-        <div style="background: #fff; border-radius: 10px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
-          <img src="nike.jpg" alt="Nike Logo" style="width:100%; height:150px; object-fit:contain; margin-bottom:15px;">
+        <a href="https://www.nike.com/" target="_blank" rel="noopener noreferrer" style="text-decoration:none; color:inherit;">
+  <div class="brand-card" style="background: #fff; border-radius: 10px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+          <img src="nike.jpg" alt="Nike" style="width:100%; height:150px; object-fit:contain; margin-bottom:15px;">
           <h4>Nike</h4>
           <p><strong>Founder / Owner:</strong> Phil Knight & Bill Bowerman (public company)</p>
           <p><strong>Brand Value:</strong> ~$37.6 billion (2024)</p>
         </div>
+        </a>
 
-        <div style="background: #fff; border-radius: 10px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
-          <img src="Chanel.jpg" alt="Chanel Logo" style="width:100%; height:150px; object-fit:contain; margin-bottom:15px;">
+        <a href="https://www.chanel.com/" target="_blank" rel="noopener noreferrer" style="text-decoration:none; color:inherit;">
+  <div class="brand-card" style="background: #fff; border-radius: 10px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+          <img src="Chanel.jpg" alt="Chanel" style="width:100%; height:150px; object-fit:contain; margin-bottom:15px;">
           <h4>Chanel</h4>
           <p><strong>Founder / Owner:</strong> Coco Chanel (owned by the Wertheimer family)</p>
           <p><strong>Brand Value:</strong> ~$29.6 billion (2024)</p>
         </div>
+        </a>
 
-        <div style="background: #fff; border-radius: 10px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
-          <img src="gucci.jpg" alt="Gucci Logo" style="width:100%; height:150px; object-fit:contain; margin-bottom:15px;">
+        <a href="https://www.gucci.com/" target="_blank" rel="noopener noreferrer" style="text-decoration:none; color:inherit;">
+  <div class="brand-card" style="background: #fff; border-radius: 10px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+          <img src="gucci.jpg" alt="Gucci" style="width:100%; height:150px; object-fit:contain; margin-bottom:15px;">
           <h4>Gucci</h4>
           <p><strong>Founder / Owner:</strong> Guccio Gucci (part of Kering group)</p>
           <p><strong>Brand Value:</strong> ~$16.4 billion (2024)</p>
         </div>
+        </a>
 
-        <div style="background: #fff; border-radius: 10px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
-          <img src="ZARA.jpg" alt="Zara Logo" style="width:100%; height:150px; object-fit:contain; margin-bottom:15px;">
+        <a href="https://www.zara.com/" target="_blank" rel="noopener noreferrer" style="text-decoration:none; color:inherit;">
+  <div class="brand-card" style="background: #fff; border-radius: 10px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+          <img src="ZARA.jpg" alt="Zara" style="width:100%; height:150px; object-fit:contain; margin-bottom:15px;">
           <h4>Zara</h4>
           <p><strong>Founder / Owner:</strong> Amancio Ortega (under Inditex Group)</p>
           <p><strong>Brand Value:</strong> ~$16.2 billion (2024)</p>
         </div>
+        </a>
 
-        <div style="background: #fff; border-radius: 10px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
-          <img src="Adidas (1).jpg" alt="Adidas Logo" style="width:100%; height:150px; object-fit:contain; margin-bottom:15px;">
+        <a href="https://www.adidas.com/" target="_blank" rel="noopener noreferrer" style="text-decoration:none; color:inherit;">
+  <div class="brand-card" style="background: #fff; border-radius: 10px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+          <img src="Adidas (1).jpg" alt="Adidas" style="width:100%; height:150px; object-fit:contain; margin-bottom:15px;">
           <h4>Adidas</h4>
           <p><strong>Founder / Owner:</strong> Adolf Dassler (public company)</p>
           <p><strong>Brand Value:</strong> ~$15.0 billion (2024)</p>
         </div>
+        </a>
 
+        <a href="https://www.versace.com/" target="_blank" rel="noopener noreferrer" style="text-decoration:none; color:inherit;">
         <div style="background: #fff; border-radius: 10px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
-          <img src="Dior (1).jpg"Dior Logo" style="width:100%; height:150px; object-fit:contain; margin-bottom:15px;">
-          <h4>Dior</h4>
-          <p><strong>Founder / Owner:</strong> Christian Dior (part of LVMH group)</p>
-          <p><strong>Brand Value:</strong> ~$12.5 billion (2024)</p>
+          <img src="Versace.png" alt="Versace" style="width:100%; height:150px; object-fit:contain; margin-bottom:15px;">
+          <h4>Versace</h4>
+          <p><strong>Founder / Owner:</strong> Gianni Versace</p>
+          <p><strong>Brand Value:</strong> $7 billion (2024)</p>
         </div>
+        </a>
+         <a href="https://www.prada.com/" target="_blank" rel="noopener noreferrer" style="text-decoration:none; color:inherit;">
+         <div class="brand-card" style="background: #fff; border-radius: 10px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+          <img src="Prada.png" alt="Prada" style="width:100%; height:150px; object-fit:contain; margin-bottom:15px;">
+          <h4>Prada</h4>
+          <p><strong>Founder / Owner:</strong> Mario Prada</p>
+          <p><strong>Brand Value:</strong> $10 billion (2024)</p>
+        </div>
+        </a>
+
+        <a href="https://www.rolex.com/" target="_blank" rel="noopener noreferrer" style="text-decoration:none; color:inherit;">
+  <div class="brand-card" style="background: #fff; border-radius: 10px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+          <img src="Rolex.png" alt="Rolex" style="width:100%; height:150px; object-fit:contain; margin-bottom:15px;">
+          <h4>Rolex</h4>
+          <p><strong>Founder / Owner:</strong> Hans Wilsdorf</p>
+          <p><strong>Brand Value:</strong> $12 billion (2022)</p>
+        </div>
+        </a>
 
       </div>
     </div>

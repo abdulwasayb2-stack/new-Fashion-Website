@@ -99,17 +99,22 @@
     /* ===== Dropdown ===== */
     .dropdown {
       position: relative;
+      z-index: 1100; /* ensure dropdown sits above other elements */
     }
 
     .dropdown-menu {
       display: none;
       position: absolute;
       background: #fff;
-      top: 35px;
+      top: 100%; /* place directly below the parent link to avoid hover gap */
+      left: 0;
+      margin-top: 6px; /* small gap for visual separation but avoids hover issues */
       list-style: none;
-      padding: 10px 0;
-      border-radius: 5px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      padding: 8px 0;
+      border-radius: 6px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+      min-width: 160px;
+      z-index: 1200;
     }
 
     .dropdown-menu li {
@@ -806,7 +811,8 @@
     <p>Discover luxury and creativity from globally admired labels featured on First Fashion.</p>
     <div class="brand-cards">
       <div class="brand-card">
-        <img src="gucci.jpg" alt="Gucci Logo" style="width:150px; height:auto; margin-top:20px;">
+        <img src="gucci.jpg" loading="lazy" alt="" style="width:150px; height:auto; margin-top:20px;">
+        <a href="https://www.gucci.com/us/en/?srsltid=AfmBOopFV6XKKwwbqKe9ZiCmOchYAd6Qm9zHA2q9BRwMGMimsOgXzL_4"><h4>Gucci</h4></a>
         <p>Italian luxury redefining elegance and creativity.</p>
       </div>
       <div class="brand-card">
@@ -890,11 +896,11 @@
       <div class="footer-section links">
         <h4>Quick Links</h4>
         <ul>
-          <li><a href="#">Home</a></li>
+          <li><a href="index.html">Home</a></li>
           <li><a href="#">Collections</a></li>
-          <li><a href="#">Brands</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Contact</a></li>
+          <li><a href="brands.html">Brands</a></li>
+          <li><a href="">About</a></li>
+          <li><a href="Contact page .HTML">Contact</a></li>
         </ul>
       </div>
 
