@@ -1,0 +1,28 @@
+.back-button {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(180deg,#ffffff,#f1f1f1);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  cursor: pointer;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.back-button:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(0,0,0,0.16); }
+
+.back-button:active { transform: translateY(0); }
+
+.back-button svg { width: 20px; height: 20px; fill: #222; }
+
+/* Slightly smaller on very small screens */
+@media (max-width: 420px) {
+  .back-button { width: 42px; height: 42px; right: 12px; bottom: 12px; }
+  .back-button svg { width: 18px; height: 18px; }
+}

@@ -454,10 +454,23 @@
   font-size: 1.3em;
   margin: 15px 0 5px;
 }
+.brand-card h4 a{
+  color: #0072ff;
+  font-size: 1.3em;
+  margin: 15px 0 5px;
+  
+}
+
+.brand-card h4 a:hover,
+.brand-card h4 a:focus {
+  text-decoration: none;
+  outline: none;
+}
 .brand-card p {
   color: #555;
   font-size: 0.95em;
   padding: 0 10px 20px;
+  text-decoration: none;
 }
 
 /* ===== Carousel Section ===== */
@@ -681,6 +694,7 @@
 }
 
   </style>
+  <link rel="stylesheet" href="css/back-button.css">
 </head>
 
 <body>
@@ -817,17 +831,17 @@
       </div>
       <div class="brand-card">
         <img src="ZARA.jpg" alt="Zara Collection">
-        <h4>Zara</h4>
+        <a href="https://www.zara.com/"><h4>Zara</h4></a>
         <p>Modern trends blended with everyday comfort and chic design.</p>
       </div>
       <div class="brand-card">
         <img src="nike.jpg" alt="Nike Streetwear">
-        <h4>Nike</h4>
+        <a href="https://www.nike.com/"><h4>Nike</h4></a>
         <p>Performance meets style in every step you take.</p>
       </div>
       <div class="brand-card">
         <img src="h&m.png" alt="H&M Fashion">
-        <h4>H&M</h4>
+        <a href="https://www2.hm.com/en_us/index.html"> <h4>H&M</h4></a>
         <p>Everyday fashion made affordable, sustainable, and timeless.</p>
       </div>
     </div>
@@ -985,5 +999,11 @@
     });
     });
   </script>
+  <script src="js/back-button.js"></script>
+  <div class="back-button" role="button" tabindex="0" aria-label="Go back">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" />
+    </svg>
+  </div>
 </body>
 </html>
